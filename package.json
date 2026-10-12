@@ -1,0 +1,30 @@
+{
+  "name": "dsh-computer-use-ps",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Desktop control for DeepSeek Harness: screen capture, window inspection, virtual mouse and keyboard — built only on Windows APIs, no third-party binaries, no driver-level input.",
+  "keywords": [
+    "deepseek-harness",
+    "dsh-plugin",
+    "computer-use",
+    "desktop-automation",
+    "mcp",
+    "windows"
+  ],
+  "license": "MIT",
+  "os": [
+    "win32"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "files": [
+    "cordis.patch.yml",
+    "dsh-computer-use.ps1",
+    "image-tools.py",
+    "README.md",
+    "LICENSE"
+  ]
+}

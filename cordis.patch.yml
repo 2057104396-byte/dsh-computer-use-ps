@@ -1,0 +1,27 @@
+# dsh-computer-use-ps — 桌面操控插件（DSH bundle patch）
+#
+# 本文件让这个包成为一个可被 DSH 加载的 bundle 层：它把一个 MCP 客户端行插进
+# profile 的配置树，行名字指向本包根目录（解析到 package.json 后取它的 dsh 声明）。
+#
+# 安装：
+#   dsh plugin --profile desktop add github:<你的用户名>/dsh-computer-use-ps
+# 或者手动：
+#   1. 把本包放进 profile 依赖：  pnpm add link:<本目录绝对路径>
+#   2. 把包名加进 profile 的 dsh.profile.bundles
+#
+# 依赖说明：本插件需要 DSH 自带 Python（Pillow 已预装）来做图像缩放与配色分析。
+# 若 Python 路径不同，改 dsh-computer-use.ps1 里的 $script:PythonExe。
+- insert:
+    - id: mcp-computer-use
+      name: dsh-computer-use-ps
+      config:
+        serverName: desktop
+        transport: stdio
+        command: C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+        args:
+          - -NoProfile
+          - -ExecutionPolicy
+          - Bypass
+          - -File
+          - ./dsh-computer-use.ps1
+        toolCallTimeoutMs: 120000

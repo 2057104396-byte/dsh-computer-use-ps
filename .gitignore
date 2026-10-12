@@ -1,0 +1,15 @@
+# MCP message dumps and manual test fixtures
+*.jsonl
+_test*.json
+_test*.ps1
+scratch/
+*.log
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
